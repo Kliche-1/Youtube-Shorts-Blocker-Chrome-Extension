@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shorts Block: Reclaim Your Focus on YouTube</title>
+    <style>
+        /* --- GLOBAL STYLES & VARIABLES --- */
+        :root {
+            --primary-color: #0a2540;
+            --secondary-color: #f6f9fc;
+            --accent-color: #ff4500; /* YouTube-ish Red/Orange */
+            --text-color: #333;
+            --light-text-color: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        .main-header {
+            background-color: #fff;
+            padding: 15px 0;
+            border-bottom: 1px solid #e6e6e6;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 25px;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text-color);
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: transform 0.2s ease, background-color 0.2s ease;
+            box-shadow: 0 4px 15px rgba(255, 69, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            background-color: #e03e00;
+        }
+        
+        .hero-note {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* --- SECTIONS (FEATURES, SCREENSHOTS, ETC.) --- */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-light {
+            background-color: #fff;
+        }
+
+        .section-dark {
+            background-color: var(--secondary-color);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 50px;
+        }
+
+        /* --- FEATURES SECTION --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* --- SCREENSHOTS SECTION --- */
+        .screenshots-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .screenshot-wrapper {
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+        }
+
+        .screenshot-wrapper h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .screenshot-image {
+            width: 100%;
+            border-radius: var(--border-radius);
+            border: 1px solid #ddd;
+            box-shadow: var(--box-shadow);
+        }
+
+        .before h3 { color: #d9534f; }
+        .after h3 { color: #5cb85c; }
+        
+        /* --- FINAL CTA SECTION --- */
+        .final-cta {
+            background-color: var(--primary-color);
+            color: var(--light-text-color);
+            padding: 80px 20px;
+        }
+
+        .final-cta .section-title {
+            color: #fff;
+        }
+
+        .final-cta .section-subtitle {
+            color: #ccc;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            color: #888;
+            border-top: 1px solid #e6e6e6;
+        }
+
+        /* --- ANIMATIONS & RESPONSIVENESS --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title { font-size: 2rem; }
+            .main-nav { display: none; } /* Hide nav on mobile for simplicity */
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">Shorts<span>Block</span></a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#screenshots">How It Works</a></li>
+                    <li><a href="#get-started">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero" id="home">
+            <div class="container">
+                <h1 class="fade-in">End the Endless Scroll.</h1>
+                <p class="fade-in" style="transition-delay: 0.1s;">
+                    Reclaim your focus and productivity with <strong>ShortsBlock</strong>, the simplest way to remove distracting YouTube Shorts from your browsing experience.
+                </p>
+                <a href="#" class="cta-button fade-in" style="transition-delay: 0.2s;">
+                    <!--! IMPORTANT: PASTE YOUR CHROME STORE LINK HERE -->
+                    Add to Chrome - It's Free
+                </a>
+                <p class="hero-note fade-in" style="transition-delay: 0.3s;">Available for Google Chrome</p>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section id="features" class="section section-light">
+            <div class="container">
+                <h2 class="section-title fade-in">Your YouTube, Your Rules</h2>
+                <p class="section-subtitle fade-in">
+                    ShortsBlock is designed to be lightweight, effective, and completely seamless. Here's what it does for you:
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Block Shorts Feed</h3>
+                        <p>Removes the distracting "Shorts" shelf from your YouTube homepage and subscription feed, letting you focus on the content you chose to see.</p>
+                    </div>
+                    <div class="feature-card fade-in" style="transition-delay: 0.1s;">
+                        <div class="feature-icon">🚫</div>
+                        <h3>Hide Shorts Tab</h3>
+                        <p>Hides the dedicated "Shorts" button from the YouTube sidebar menu, preventing you from accidentally falling into the rabbit hole.</p>
+                    </div>
+                    <div class="feature-card fade-in" style="transition-delay: 0.2s;">
+                        <div class="feature-icon">⚡️</div>
+                        <h3>Lightweight & Fast</h3>
+                        <p>No bloat. ShortsBlock is a tiny, efficient extension that doesn't slow down your browser or your YouTube experience. It just works.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SCREENSHOTS SECTION -->
+        <section id="screenshots" class="section section-dark">
+            <div class="container">
+                <h2 class="section-title fade-in">See The Difference</h2>
+                <p class="section-subtitle fade-in">A picture is worth a thousand words. See how ShortsBlock cleans up your YouTube interface.</p>
+                <div class="screenshots-container">
+                    <div class="screenshot-wrapper before fade-in">
+                        <h3>Before</h3>
+                        <!--! IMPORTANT: REPLACE WITH YOUR "BEFORE" SCREENSHOT URL -->
+                        <img src="https://placehold.co/800x450/d9534f/ffffff?text=YouTube+with+Shorts\n(Your+Screenshot+Here)" alt="YouTube interface with Shorts section visible" class="screenshot-image">
+                    </div>
+                    <div class="screenshot-wrapper after fade-in" style="transition-delay: 0.1s;">
+                        <h3>After ShortsBlock</h3>
+                         <!--! IMPORTANT: REPLACE WITH YOUR "AFTER" SCREENSHOT URL -->
+                        <img src="https://placehold.co/800x450/5cb85c/ffffff?text=Clean+YouTube\n(Your+Screenshot+Here)" alt="YouTube interface with Shorts section hidden" class="screenshot-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section id="get-started" class="section final-cta">
+            <div class="container">
+                <h2 class="section-title fade-in">Ready to Take Back Your Time?</h2>
+                <p class="section-subtitle fade-in">
+                    Installation takes less than 10 seconds. Get back to intentional, productive browsing today.
+                </p>
+                <a href="#" class="cta-button fade-in" style="transition-delay: 0.1s;">
+                    <!--! IMPORTANT: PASTE YOUR CHROME STORE LINK HERE -->
+                    Add to Chrome - It's Free
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script>
+        // Simple JavaScript for fade-in animations on scroll
+        document.addEventListener("DOMContentLoaded", function() {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Optional: stop observing once it's visible
+                    }
+                });
+            }, {
+                threshold: 0.1 // Trigger when 10% of the element is visible
+            });
+
+            fadeInElements.forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
